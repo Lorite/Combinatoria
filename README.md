@@ -22,33 +22,33 @@ Llamamos m a los elementos disponibles y n a los elementos que tomamos por grupo
 ![alt tag](http://4.bp.blogspot.com/-dsBZq5JDds8/T5u1N8dWIxI/AAAAAAAAAAg/aZ31mJXAAlM/s1600/Tabla+resumen+combinatoria.png)
 
 ## Programas actuales
-1. Programa general que agrupa todas las posibilidades
+1. Programa general que agrupa todas las posibilidades (ventana):
   1. - [ ] Calculadora
   2. - [ ] Generador
-2. Generación de combinaciones con repetición aleatorias
+2. Generación de combinaciones con repetición aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-3. Generación de combinaciones ordinarias aleatorias
+3. Generación de combinaciones ordinarias aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-4. Generación de permutaciones circulares aleatorias del conjunto
+4. Generación de permutaciones circulares aleatorias del conjunto (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-5. Generación de permutaciones con repetición restringida aleatorias
+5. Generación de permutaciones con repetición restringida aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-6. Generación de permutaciones ordinarias aleatorias
+6. Generación de permutaciones ordinarias aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-7. Generación de variaciones circulares aleatorias
+7. Generación de variaciones circulares aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-8. Generación de variaciones con repetición aleatorias
+8. Generación de variaciones con repetición aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
-9. Generación de variaciones ordinarias aleatorias
+9. Generación de variaciones ordinarias aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
 
 ## Fuente
-http://www.vadenumeros.es/sociales/combinatoria.htm
+Información: http://www.vadenumeros.es/sociales/combinatoria.htm
