@@ -14,7 +14,7 @@ public class Main {
 	*/
 	public static int leerEnteroDeTeclado(String texto) {
 		try {
-			System.out.println("Introduce un número entero. " + texto);
+			System.out.println("Introduzca un número entero. " + texto);
 			String lin = brTeclado.readLine();
 			if (lin==null) return -1;
 			return Integer.parseInt( lin );
