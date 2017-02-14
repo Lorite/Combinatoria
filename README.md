@@ -21,5 +21,34 @@ Llamamos m a los elementos disponibles y n a los elementos que tomamos por grupo
 ## Fórmulas
 ![alt tag](http://4.bp.blogspot.com/-dsBZq5JDds8/T5u1N8dWIxI/AAAAAAAAAAg/aZ31mJXAAlM/s1600/Tabla+resumen+combinatoria.png)
 
+## Programas actuales
+1. Programa general que agrupa todas las posibilidades
+  1. - [ ] Calculadora
+  2. - [ ] Generador
+2. Generación de combinaciones con repetición aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+3. Generación de combinaciones ordinarias aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+4. Generación de permutaciones circulares aleatorias del conjunto
+  1. - [x] Calculadora
+  2. - [ ] Generador
+5. Generación de permutaciones con repetición restringida aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+6. Generación de permutaciones ordinarias aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+7. Generación de variaciones circulares aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+8. Generación de variaciones con repetición aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+9. Generación de variaciones ordinarias aleatorias
+  1. - [x] Calculadora
+  2. - [ ] Generador
+
 ## Fuente
 http://www.vadenumeros.es/sociales/combinatoria.htm
