@@ -19,7 +19,7 @@ Llamamos m a los elementos disponibles y n a los elementos que tomamos por grupo
   2. No --> Pueden ser variaciones o permutaciones sin repetición
 
 ## Fórmulas
-![alt tag](http://www.vadenumeros.es/imagenes/sociales/combinatoria_esquema.gif)
+![alt tag](http://4.bp.blogspot.com/-dsBZq5JDds8/T5u1N8dWIxI/AAAAAAAAAAg/aZ31mJXAAlM/s1600/Tabla+resumen+combinatoria.png)
 
 ## Fuente
 http://www.vadenumeros.es/sociales/combinatoria.htm
