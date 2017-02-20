@@ -31,7 +31,7 @@ public class Combinatoria extends JFrame{
 		double screenWidth = screenSize.getWidth();
 		double screenHeight = screenSize.getHeight();
 		combinatoria.setTitle("Combinatoria");
-		combinatoria.setSize(new Dimension((int) (3*screenWidth/5), (int) (4*screenHeight/5)));
+		combinatoria.setSize(new Dimension((int) (3*screenWidth/5), (int) (3*screenHeight/5)));
 		combinatoria.setLocationRelativeTo(null);
 		combinatoria.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		combinatoria.getContentPane().setLayout(new BorderLayout());
@@ -45,10 +45,10 @@ public class Combinatoria extends JFrame{
 		// panel inferior
 		panelInferior = new JPanel(new BorderLayout());
 		botonAnterior = new JButton("Anterior");
-		botonAnterior.setFont( new Font("Arial", Font.BOLD, 20));
+		botonAnterior.setFont( new Font("Arial", Font.BOLD, 18));
 		panelInferior.add(botonAnterior, BorderLayout.WEST);
 		botonSiguiente = new JButton("Siguiente");
-		botonSiguiente.setFont( new Font("Arial", Font.BOLD, 20));
+		botonSiguiente.setFont( new Font("Arial", Font.BOLD, 18));
 		panelInferior.add(botonSiguiente, BorderLayout.EAST);
 		combinatoria.add(panelInferior, BorderLayout.SOUTH);
 		
