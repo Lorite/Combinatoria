@@ -1,10 +1,14 @@
 package paneles;
 
-import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.*;
 
 public class Panel1 extends JPanel{
-
+	
+	// panel que pregunta si sabe qué tipo de problema combinatorio es
+	
 	private static final long serialVersionUID = 1L;
 	private JLabel preguntaLabel;
 	private JComboBox<String> tipoCB;
@@ -20,6 +24,24 @@ public class Panel1 extends JPanel{
 				"Variación circular", "Variación con repetición", "Variación ordinaria"});
 		this.add(tipoCB);
 		okButton = new JButton("OK");
+		okButton.addMouseListener( new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (tipoCB != null && tipoCB.getSelectedIndex() >= 0) {
+					switch (tipoCB.getSelectedIndex()) {
+					case 0:
+						
+						break;
+					case 1:
+						
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		});
 		this.add(okButton);
 		
 	}
