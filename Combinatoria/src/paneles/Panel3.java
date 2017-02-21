@@ -7,7 +7,15 @@ public class Panel3 extends JPanel {
 	// panel si ya sabe qué tipo de problema combinatorio es (pregunta n, m)
 	
 	private static final long serialVersionUID = 1L;
-
+	private JLabel preguntaLabel;
+	
+	public Panel3() {
+		super();
+		
+		preguntaLabel = new JLabel("3");
+		this.add(preguntaLabel);
+	}
+	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Prueba");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
