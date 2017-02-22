@@ -35,7 +35,9 @@ public class Panel1 extends JPanel{
 					case 0:
 						if (!Combinatoria.getTipoProblema().equals("Desconocido")) // si ya hay un panel siguiente a este y no es tipo 2
 							Combinatoria.quitarPanelesCentralMenosPrimero();
-						Combinatoria.anadirCompPanelCentral(new Panel2());
+						if (Combinatoria.getListaPanelesCentral().size() == 1)
+							Combinatoria.anadirCompPanelCentral(new Panel2());
+						Combinatoria.setTipoProblema("Desconocido");
 						break;
 					case 1:
 						cambiarPorPanel3("Combinación con repetición");
@@ -72,9 +74,10 @@ public class Panel1 extends JPanel{
 	}
 	
 	private static void cambiarPorPanel3(String tipoProblema) {
-		if (Combinatoria.getListaPanelesCentral().size() > 1 && Combinatoria.getTipoProblema().equals("Desconocido")) // si ya hay un panel siguiente a este y no es tipo 3
+		if (Combinatoria.getTipoProblema().equals("Desconocido")) // si ya hay un panel siguiente a este y no es tipo 3
 			Combinatoria.quitarPanelesCentralMenosPrimero();
-		Combinatoria.anadirCompPanelCentral(new Panel3());
+		if (Combinatoria.getListaPanelesCentral().size() == 1)
+			Combinatoria.anadirCompPanelCentral(new Panel3());
 		Combinatoria.setTipoProblema(tipoProblema);
 	}
 	

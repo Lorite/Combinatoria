@@ -46,7 +46,7 @@ public class Combinatoria extends JFrame{
 		panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
 		combinatoria.add(panelCentral, BorderLayout.CENTER);
 		PanelTitulo panelTitulo = new PanelTitulo();
-		anadirCompPanelCentral(panelTitulo);
+		panelCentral.add(panelTitulo);
 		Panel1 panel1 = new Panel1();
 		anadirCompPanelCentral(panel1);
 		
@@ -116,6 +116,11 @@ public class Combinatoria extends JFrame{
 
 	public static ArrayList<JPanel> getListaPanelesCentral() {
 		return listaPanelesCentral;
+	}
+
+
+	public static JPanel getPanelCentral() {
+		return panelCentral;
 	}
 	
 
