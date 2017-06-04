@@ -58,7 +58,12 @@ public class Combinatoria extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				if (listaPanelesCentral.size() >= 2 && listaPanelesCentral.get(1) instanceof Panel3) {
+					anadirCompPanelCentral(new PanelResultadoa(((Panel3) listaPanelesCentral.get(1)).getM(), 
+							((Panel3) listaPanelesCentral.get(1)).getN()));	
+					anadirCompPanelCentral(new PanelResultadob());
+				} else
+					JOptionPane.showMessageDialog(null, "Completa primero los pasos previos", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		this.panelInferior.add(botonCalcular, BorderLayout.EAST);
@@ -72,6 +77,7 @@ public class Combinatoria extends JFrame{
 	
 	private static void empezar() {
 		combinatoria = Combinatoria.getCombinatoria();
+		anadirCompPanelCentral(new Panel2());
 		combinatoria.setVisible(true);
 	}
 	
@@ -80,6 +86,8 @@ public class Combinatoria extends JFrame{
 	
 	public static void anadirCompPanelCentral(JPanel panel) {
 		combinatoria.panelCentral.add(new JLabel("-"));
+		if (combinatoria.listaPanelesCentral.size() >= 2 && combinatoria.listaPanelesCentral.size() % 2 == 1)
+			combinatoria.panelCentral.add(new JLabel("-"));
 		combinatoria.panelCentral.add(panel);
 		combinatoria.listaPanelesCentral.add(panel);
 		combinatoria.pack();

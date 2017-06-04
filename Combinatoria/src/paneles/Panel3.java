@@ -86,6 +86,7 @@ public class Panel3 extends JPanel {
 			preguntasPanel[i].add(preguntasS[i]);
 			this.add(preguntasPanel[i]);
 		}
+
 	}
 	
 	public static void main(String[] args) {
@@ -99,6 +100,14 @@ public class Panel3 extends JPanel {
 		
 		frame.setVisible(true);
 
+	}
+	
+	public int getM() {
+		return (int) preguntasS[0].getValue();
+	}
+	
+	public int getN() {
+		return (int) preguntasS[1].getValue();
 	}
 	
 }

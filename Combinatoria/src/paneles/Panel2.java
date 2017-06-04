@@ -18,6 +18,9 @@ public class Panel2 extends JPanel {
 		¿Se pueden repetir los elementos?
 			Si --> Pueden ser combinaciones, variaciones o permutaciones con repetición
 			No --> Pueden ser combinaciones, variaciones o permutaciones sin repetición
+		¿Es circular?
+			Si --> Pueden ser variaciones o permutaciones circulares
+			No --> Pueden ser variaciones o permutaciones no circulares
 	*/
 	
 	private static final long serialVersionUID = 1L;
@@ -42,7 +45,8 @@ public class Panel2 extends JPanel {
 		// preguntas
 		preguntasString = new String[] {"¿Importa el orden de colocación de los elementos?",
 				"¿Tomamos todos los elementos diponibles o algunos?",
-				"¿Se pueden repetir los elementos?"};
+				"¿Se pueden repetir los elementos?",
+				"¿Es circular?"};
 		preguntasPanel = new JPanel[preguntasString.length];
 		preguntasLabel = new JLabel[preguntasString.length];
 		preguntasTB = new JToggleButton[preguntasString.length * 2];
@@ -62,6 +66,13 @@ public class Panel2 extends JPanel {
 						preguntasBool[posReal] = true;
 						preguntasTB[posTB].setSelected(preguntasBool[posReal]);
 						preguntasTB[posTB + 1].setSelected(!preguntasBool[posReal]);
+						if (posTB == 4) {
+							preguntasTB[posTB + 2].setSelected(!preguntasBool[posReal]);
+							preguntasTB[posTB + 3].setSelected(preguntasBool[posReal]);
+						} else if (posTB == 6) {
+							preguntasTB[posTB - 2].setSelected(!preguntasBool[posReal]);
+							preguntasTB[posTB - 1].setSelected(preguntasBool[posReal]);
+						}
 					} else {
 						preguntasBool[posReal] = false;
 						preguntasTB[posTB - 1].setSelected(preguntasBool[posReal]);
@@ -69,7 +80,8 @@ public class Panel2 extends JPanel {
 					}
 				}
 			};
-			preguntasBool[i] = true;
+			if (i != 3)
+				preguntasBool[i] = true;
 			if (i == 1)
 				preguntasTB[i*2] = new JToggleButton("Todos");
 			else
@@ -81,6 +93,7 @@ public class Panel2 extends JPanel {
 				preguntasTB[i*2 + 1] = new JToggleButton("Algunos");
 			else
 				preguntasTB[i*2 + 1] = new JToggleButton("No");
+			preguntasTB[i*2 + 1].setSelected(!preguntasBool[i]);
 			preguntasTB[i*2 + 1].addActionListener(al);
 			preguntasPanel[i].add(preguntasTB[i*2 + 1]);
 			this.add(preguntasPanel[i]);
@@ -114,9 +127,10 @@ public class Panel2 extends JPanel {
 			}
 		}
 		
-		// ver si se repiten elementos o no
-		if (preguntasTB[4].isSelected())
+		if (preguntasTB[4].isSelected())	// ver si se repiten elementos o no
 			tipoProblema += " con repetición";
+		else if (preguntasTB[6].isSelected())	// ver si es circular o no
+			tipoProblema += " circular";
 		else
 			tipoProblema += " ordinaria";
 		

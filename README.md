@@ -17,12 +17,15 @@ Llamamos m a los elementos disponibles y n a los elementos que tomamos por grupo
 - ¿Se pueden repetir los elementos?
   1. Si --> Pueden ser combinaciones, variaciones o permutaciones con repetición
   2. No --> Pueden ser combinaciones, variaciones o permutaciones sin repetición
+- ¿Es circular?
+	1. Si --> Pueden ser variaciones o permutaciones circulares
+	2. No --> Pueden ser variaciones o permutaciones no circulares
 
 ## Fórmulas
 ![alt tag](http://4.bp.blogspot.com/-dsBZq5JDds8/T5u1N8dWIxI/AAAAAAAAAAg/aZ31mJXAAlM/s1600/Tabla+resumen+combinatoria.png)
 
 ## Programas actuales
-1. Programa general que agrupa todas las posibilidades (ventana):	* faltan circulares
+1. Programa general que agrupa todas las posibilidades (ventana):
   1. - [ ] Calculadora
   2. - [ ] Generador
 2. Generación de combinaciones con repetición aleatorias (comandos):

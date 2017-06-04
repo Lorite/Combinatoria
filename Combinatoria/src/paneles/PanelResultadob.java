@@ -8,6 +8,13 @@ public class PanelResultadob extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 
+	public PanelResultadob() {
+		super();
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Prueba");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

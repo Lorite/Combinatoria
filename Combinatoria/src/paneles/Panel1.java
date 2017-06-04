@@ -1,7 +1,7 @@
 package paneles;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -14,7 +14,6 @@ public class Panel1 extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JLabel preguntaLabel;
 	private static JComboBox<String> tipoCB;
-	private JButton okButton;
 
 	public Panel1() {
 		super();
@@ -24,12 +23,10 @@ public class Panel1 extends JPanel{
 		tipoCB = new JComboBox<>(new String[]{"No", "Combinación con repetición", "Combinación ordinaria",
 				"Permutación circular", "Permutación con repetición", "Permutación ordinaria",
 				"Variación circular", "Variación con repetición", "Variación ordinaria"});
-		this.add(tipoCB);
-		okButton = new JButton("OK");
-		okButton.addMouseListener( new MouseAdapter() {
+		tipoCB.addActionListener(new ActionListener() {
 			
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void actionPerformed(ActionEvent e) {
 				if (tipoCB != null && tipoCB.getSelectedIndex() >= 0) {
 					switch (tipoCB.getSelectedIndex()) {
 					case 0:
@@ -66,10 +63,10 @@ public class Panel1 extends JPanel{
 					default:
 						break;
 					}
-				}
+				}				
 			}
 		});
-		this.add(okButton);
+		this.add(tipoCB);
 		
 	}
 	
