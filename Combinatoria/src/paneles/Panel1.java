@@ -73,10 +73,10 @@ public class Panel1 extends JPanel{
 		
 	}
 	
-	private static void cambiarPorPanel3(String tipoProblema) {
+	public static void cambiarPorPanel3(String tipoProblema) {
 		if (Combinatoria.getTipoProblema().equals("Desconocido")) // si ya hay un panel siguiente a este y no es tipo 3
 			Combinatoria.quitarPanelesCentralMenosPrimero();
-		if (Combinatoria.getListaPanelesCentral().size() == 1)
+		if (Combinatoria.getListaPanelesCentral().size() == 1 && !tipoProblema.equals("Desconocido"))
 			Combinatoria.anadirCompPanelCentral(new Panel3());
 		Combinatoria.setTipoProblema(tipoProblema);
 	}
