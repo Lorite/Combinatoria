@@ -2,6 +2,7 @@ package paneles;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -20,10 +21,13 @@ public class Panel2 extends JPanel {
 	*/
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel enunciadoPanel, pregunta1Panel, pregunta2Panel, pregunta3Panel, okPanel;
-	private JLabel enunciadoLabel, pregunta1Label, pregunta2Label, pregunta3Label;
-	private JToggleButton pregunta1SiTB, pregunta1NoTB, pregunta2TodosTB, pregunta2AlgunosTB, pregunta3SiTB, pregunta3NoTB;
-	private boolean pregunta1Bool, pregunta2Bool, pregunta3Bool;	// true si es la primera respuesta
+	private JPanel enunciadoPanel, okPanel;
+	private JPanel[] preguntasPanel;
+	private JLabel enunciadoLabel;
+	private String[] preguntasString;
+	private JLabel[] preguntasLabel;
+	private JToggleButton[] preguntasTB;
+	private boolean[] preguntasBool;	// true si es la primera respuesta
 	private JButton okButton;
 	
 	public Panel2() {
@@ -35,55 +39,55 @@ public class Panel2 extends JPanel {
 		enunciadoPanel.add(enunciadoLabel);
 		this.add(enunciadoPanel);
 		
-		// pregunta 1
-		pregunta1Panel = new JPanel();
-		pregunta1Label = new JLabel("¿Importa el orden de colocación de los elementos?");
-		pregunta1Panel.add(pregunta1Label);
-		ActionListener al1 = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource().equals(pregunta1SiTB))
-					pregunta1Bool = true;
-				else
-					pregunta1Bool = false;
-				pregunta1SiTB.setSelected(pregunta1Bool);
-				pregunta1NoTB.setSelected(!pregunta1Bool);
-			}
-		};
-		pregunta1Bool = true;
-		pregunta1SiTB = new JToggleButton("Sí");
-		pregunta1SiTB.setSelected(pregunta1Bool);
-		pregunta1SiTB.addActionListener(al1);
-		pregunta1Panel.add(pregunta1SiTB);
-		pregunta1NoTB = new JToggleButton("No");
-		pregunta1NoTB.addActionListener(al1);
-		pregunta1Panel.add(pregunta1NoTB);
-		this.add(pregunta1Panel);
+		// preguntas
+		preguntasPanel = new JPanel[3];
+		preguntasString = new String[] {"¿Importa el orden de colocación de los elementos?",
+				"¿Tomamos todos los elementos diponibles o algunos?",
+				"¿Se pueden repetir los elementos?"};
 		
-		// pregunta 2
-		pregunta2Panel = new JPanel();
-		pregunta2Label = new JLabel("¿Tomamos todos los elementos diponibles o algunos?");
-		pregunta2Panel.add(pregunta2Label);
-		pregunta2Bool = true;
-		pregunta2TodosTB = new JToggleButton("Sí");
-		pregunta2TodosTB.setSelected(pregunta2Bool);
-		pregunta2Panel.add(pregunta2TodosTB);
-		pregunta2AlgunosTB = new JToggleButton("No");
-		pregunta2Panel.add(pregunta2AlgunosTB);
-		this.add(pregunta2Panel);
+		preguntasLabel = new JLabel[preguntasPanel.length];
+		preguntasTB = new JToggleButton[preguntasPanel.length * 2];
+		preguntasBool = new boolean[preguntasPanel.length];
 		
-		// pregunta 3
-		pregunta3Panel = new JPanel();
-		pregunta3Label = new JLabel("¿Se pueden repetir los elementos?");
-		pregunta3Panel.add(pregunta3Label);
-		pregunta3Bool = true;
-		pregunta3SiTB = new JToggleButton("Sí");
-		pregunta3SiTB.setSelected(pregunta3Bool);
-		pregunta3Panel.add(pregunta3SiTB);
-		pregunta3NoTB = new JToggleButton("No");
-		pregunta3Panel.add(pregunta3NoTB);
-		this.add(pregunta3Panel);
+		for (int i = 0; i < preguntasPanel.length; i++) {
+			preguntasPanel[i] = new JPanel();
+			preguntasLabel[i] = new JLabel(preguntasString[i]);
+			preguntasPanel[i].add(preguntasLabel[i]);
+			JToggleButton tempTBYes = preguntasTB[i*2];
+			JToggleButton tempTBNo = preguntasTB[i*2 + 1];
+			ActionListener al = new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int posTB = Arrays.asList(preguntasTB).indexOf(e.getSource());
+					int posReal = posTB / 2;
+					if (posTB % 2 == 0) {
+						preguntasBool[posReal] = true;
+						preguntasTB[posTB].setSelected(preguntasBool[posReal]);
+						preguntasTB[posTB + 1].setSelected(!preguntasBool[posReal]);
+					} else {
+						preguntasBool[posReal] = false;
+						preguntasTB[posTB - 1].setSelected(preguntasBool[posReal]);
+						preguntasTB[posTB].setSelected(!preguntasBool[posReal]);
+					}
+				}
+			};
+			preguntasBool[i] = true;
+			if (i == 1)
+				preguntasTB[i*2] = new JToggleButton("Todos");
+			else
+				preguntasTB[i*2] = new JToggleButton("Sí");
+			preguntasTB[i*2].setSelected(preguntasBool[i]);
+			preguntasTB[i*2].addActionListener(al);
+			preguntasPanel[i].add(preguntasTB[i*2]);
+			if (i == 1)
+				preguntasTB[i*2 + 1] = new JToggleButton("Algunos");
+			else
+				preguntasTB[i*2 + 1] = new JToggleButton("No");
+			preguntasTB[i*2 + 1].addActionListener(al);
+			preguntasPanel[i].add(preguntasTB[i*2 + 1]);
+			this.add(preguntasPanel[i]);
+		}
 		
 		// ok
 		okPanel = new JPanel();
@@ -103,10 +107,10 @@ public class Panel2 extends JPanel {
 		String tipoProblema = "Desconocido";
 		
 		// ver qué tipo es
-		if (pregunta1NoTB.isSelected()) {	// siempre combinaciones
+		if (preguntasTB[1].isSelected()) {	// siempre combinaciones
 			tipoProblema = "Combinación";
 		} else {	// permutaciones o variaciones
-			if (pregunta2TodosTB.isSelected()) {	// permutaciones
+			if (preguntasTB[2].isSelected()) {	// permutaciones
 				tipoProblema = "Permutación";
 			} else {	// variaciones
 				tipoProblema = "Variación";
@@ -114,7 +118,7 @@ public class Panel2 extends JPanel {
 		}
 		
 		// ver si se repiten elementos o no
-		if (pregunta3SiTB.isSelected())
+		if (preguntasTB[4].isSelected())
 			tipoProblema += " con repetición";
 		else
 			tipoProblema += " ordinaria";
