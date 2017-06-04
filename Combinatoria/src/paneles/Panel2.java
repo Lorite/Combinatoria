@@ -40,21 +40,18 @@ public class Panel2 extends JPanel {
 		this.add(enunciadoPanel);
 		
 		// preguntas
-		preguntasPanel = new JPanel[3];
 		preguntasString = new String[] {"¿Importa el orden de colocación de los elementos?",
 				"¿Tomamos todos los elementos diponibles o algunos?",
 				"¿Se pueden repetir los elementos?"};
+		preguntasPanel = new JPanel[preguntasString.length];
+		preguntasLabel = new JLabel[preguntasString.length];
+		preguntasTB = new JToggleButton[preguntasString.length * 2];
+		preguntasBool = new boolean[preguntasString.length];
 		
-		preguntasLabel = new JLabel[preguntasPanel.length];
-		preguntasTB = new JToggleButton[preguntasPanel.length * 2];
-		preguntasBool = new boolean[preguntasPanel.length];
-		
-		for (int i = 0; i < preguntasPanel.length; i++) {
+		for (int i = 0; i < preguntasString.length; i++) {
 			preguntasPanel[i] = new JPanel();
 			preguntasLabel[i] = new JLabel(preguntasString[i]);
 			preguntasPanel[i].add(preguntasLabel[i]);
-			JToggleButton tempTBYes = preguntasTB[i*2];
-			JToggleButton tempTBNo = preguntasTB[i*2 + 1];
 			ActionListener al = new ActionListener() {
 				
 				@Override

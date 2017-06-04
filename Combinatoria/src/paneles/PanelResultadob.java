@@ -6,6 +6,8 @@ public class PanelResultadob extends JPanel {
 
 	// panel con el resultado de la generación de todas las combinaciones
 	
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Prueba");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

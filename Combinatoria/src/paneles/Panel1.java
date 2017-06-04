@@ -13,7 +13,7 @@ public class Panel1 extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel preguntaLabel;
-	private JComboBox<String> tipoCB;
+	private static JComboBox<String> tipoCB;
 	private JButton okButton;
 
 	public Panel1() {
@@ -74,11 +74,11 @@ public class Panel1 extends JPanel{
 	}
 	
 	public static void cambiarPorPanel3(String tipoProblema) {
-		if (Combinatoria.getTipoProblema().equals("Desconocido")) // si ya hay un panel siguiente a este y no es tipo 3
-			Combinatoria.quitarPanelesCentralMenosPrimero();
+		Combinatoria.quitarPanelesCentralMenosPrimero();
+		Combinatoria.setTipoProblema(tipoProblema);
+		tipoCB.setSelectedItem(tipoProblema);
 		if (Combinatoria.getListaPanelesCentral().size() == 1 && !tipoProblema.equals("Desconocido"))
 			Combinatoria.anadirCompPanelCentral(new Panel3());
-		Combinatoria.setTipoProblema(tipoProblema);
 	}
 	
 	public static void main(String[] args) {
