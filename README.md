@@ -26,8 +26,24 @@ Llamamos m a los elementos disponibles y n a los elementos que tomamos por grupo
 
 ## Programas actuales
 1. Programa general que agrupa todas las posibilidades (ventana):
-  1. - [ ] Calculadora
-  2. - [ ] Generador
+  1. Calculadora
+  	1. - [x] Combinaciones con repetición aleatorias
+  	2. - [x] Combinaciones ordinarias aleatorias
+  	3. - [x] Permutaciones circulares aleatorias del conjunto
+  	4. - [ ] Permutaciones con repetición restringida aleatorias
+  	5. - [x] Permutaciones ordinarias aleatorias
+  	6. - [x] Variaciones circulares aleatorias
+  	7. - [x] Variaciones con repetición aleatorias
+  	8. - [x] Variaciones ordinarias aleatorias
+  2. Generador
+  	1. - [x] Combinaciones con repetición aleatorias
+  	2. - [x] Combinaciones ordinarias aleatorias
+  	3. - [ ] Permutaciones circulares aleatorias del conjunto
+  	4. - [ ] Permutaciones con repetición restringida aleatorias
+  	5. - [x] Permutaciones ordinarias aleatorias
+  	6. - [ ] Variaciones circulares aleatorias
+  	7. - [ ] Variaciones con repetición aleatorias
+  	8. - [ ] Variaciones ordinarias aleatorias
 2. Generación de combinaciones con repetición aleatorias (comandos):
   1. - [x] Calculadora
   2. - [ ] Generador
