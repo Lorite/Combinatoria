@@ -91,5 +91,9 @@ public class PanelResultadoa extends JPanel {
 		frame.setVisible(true);
 
 	}
+
+	public int getResultado() {
+		return resultado;
+	}
 	
 }

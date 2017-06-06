@@ -1,5 +1,7 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +19,11 @@ public class Panel1 extends JPanel{
 
 	public Panel1() {
 		super();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		double screenWidth = screenSize.getWidth();
+		double screenHeight = screenSize.getHeight();
+		this.setPreferredSize(new Dimension(0, (int) (1*screenHeight/20)));
+		this.setMinimumSize(new Dimension(0, (int) (1*screenHeight/20)));
 		
 		preguntaLabel = new JLabel("¿Sabes qué tipo de problema se trata?");
 		this.add(preguntaLabel);

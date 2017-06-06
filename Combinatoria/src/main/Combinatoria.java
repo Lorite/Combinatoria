@@ -18,6 +18,7 @@ public class Combinatoria extends JFrame{
 	protected String tipoProblema;
 	
 	// jframe
+	private JScrollPane panelCentralSP;
 	private JPanel panelCentral;
 	private ArrayList<JPanel> listaPanelesCentral;
 	private JPanel panelInferior;
@@ -34,18 +35,21 @@ public class Combinatoria extends JFrame{
 		double screenWidth = screenSize.getWidth();
 		double screenHeight = screenSize.getHeight();
 		this.setTitle("Combinatoria");
-		this.setSize(new Dimension((int) (3*screenWidth/5), (int) (3*screenHeight/5)));
+		this.setSize(new Dimension((int) (1*screenWidth/3), (int) (3*screenHeight/5)));
+		this.setMaximumSize(new Dimension((int) (1*screenWidth/3), (int) (3*screenHeight/5)));
+		this.setPreferredSize(new Dimension((int) (1*screenWidth/3), (int) (3*screenHeight/5)));
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(new BorderLayout());
 		
 		// panel central
 		this.panelCentral = new JPanel();
+		this.panelCentralSP = new JScrollPane(panelCentral);
 		this.listaPanelesCentral = new ArrayList<>();
 		this.panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
-		this.add(panelCentral, BorderLayout.CENTER);
+		this.add(panelCentralSP, BorderLayout.CENTER);
 		PanelTitulo panelTitulo = new PanelTitulo();
-		this.panelCentral.add(panelTitulo);
+		this.add(panelTitulo, BorderLayout.NORTH);
 		Panel1 panel1 = new Panel1();
 		this.panelCentral.add(panel1);
 		this.listaPanelesCentral.add(panel1);
@@ -58,10 +62,13 @@ public class Combinatoria extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int m = ((Panel3) listaPanelesCentral.get(1)).getM();
+				int n = ((Panel3) listaPanelesCentral.get(1)).getN();
 				if (listaPanelesCentral.size() >= 2 && listaPanelesCentral.get(1) instanceof Panel3) {
-					anadirCompPanelCentral(new PanelResultadoa(((Panel3) listaPanelesCentral.get(1)).getM(), 
-							((Panel3) listaPanelesCentral.get(1)).getN()));	
-					anadirCompPanelCentral(new PanelResultadob());
+					PanelResultadoa pa = new PanelResultadoa(m, n);
+					anadirCompPanelCentral(pa);
+					int posibilidadesTotales = pa.getResultado();
+					anadirCompPanelCentral(new PanelResultadob(m, n, posibilidadesTotales));
 				} else
 					JOptionPane.showMessageDialog(null, "Completa primero los pasos previos", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
@@ -86,7 +93,7 @@ public class Combinatoria extends JFrame{
 	
 	public static void anadirCompPanelCentral(JPanel panel) {
 		combinatoria.panelCentral.add(new JLabel("-"));
-		if (combinatoria.listaPanelesCentral.size() >= 2 && combinatoria.listaPanelesCentral.size() % 2 == 1)
+		if (combinatoria.listaPanelesCentral.size() >= 2 && combinatoria.listaPanelesCentral.size() % 2 == 0)
 			combinatoria.panelCentral.add(new JLabel("-"));
 		combinatoria.panelCentral.add(panel);
 		combinatoria.listaPanelesCentral.add(panel);
@@ -100,11 +107,12 @@ public class Combinatoria extends JFrame{
 	}
 	
 	public static void quitarPanelesCentralMenosPrimero() {
-		for (int i = combinatoria.listaPanelesCentral.size() - 1; i > 0; i--) {
-			combinatoria.panelCentral.remove(i+1);
-			combinatoria.panelCentral.remove(i+1);
-			combinatoria.listaPanelesCentral.remove(i);
-		}
+		JPanel primerComponente = getListaPanelesCentral().get(0);
+		combinatoria.panelCentral.removeAll();
+		combinatoria.listaPanelesCentral = new ArrayList<>();
+		combinatoria.listaPanelesCentral.add(primerComponente);
+		combinatoria.panelCentral.add(primerComponente);
+		combinatoria.panelCentral.repaint();
 	}
 	
 	public static void quitarPanelesCentral() {
